@@ -58,7 +58,7 @@ const Register = () => {
         <div className="mt-6">
           <Button
             onClick={handleRegister}
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-all duration-200"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-all duration-200 cursor-pointer"
             label="Register"
           />
         </div>

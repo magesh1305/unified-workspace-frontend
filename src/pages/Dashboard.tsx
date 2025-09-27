@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Text from "../components/Text";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [user, setUser] = useState<any>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const u = localStorage.getItem("user");
-    if (u) setUser(JSON.parse(u));
-  }, []);
+    if (u) {
+      setUser(JSON.parse(u));
+    } else {
+      navigate("/");
+    }
+  }, [navigate]);
 
-  if (!user)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <Text className="text-gray-500 text-lg">Loading...</Text>
-      </div>
-    );
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
@@ -28,7 +31,7 @@ const Dashboard = () => {
             Role: {user.role ? user.role : "N/A"}
           </Text>
         </div>
-        <div className="mt-6 flex justify-center">
+        {/* <div className="mt-6 flex justify-center">
           <button
             onClick={() => {
               localStorage.removeItem("user");
@@ -38,7 +41,7 @@ const Dashboard = () => {
           >
             Logout
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
