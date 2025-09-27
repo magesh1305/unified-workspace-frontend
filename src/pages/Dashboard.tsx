@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Text from "../components/Text";
 
 const Dashboard = () => {
   const [user, setUser] = useState<any>(null);
@@ -12,8 +13,10 @@ const Dashboard = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold">Welcome, {user.name}</h1>
-      <p>Email: {user.email}</p>
+      <Text as="h1" className="text-2xl font-bold">
+        Welcome, {user.name}
+      </Text>
+      <Text>Email: {user.email}</Text>
     </div>
   );
 };
